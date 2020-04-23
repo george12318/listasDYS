@@ -16,7 +16,7 @@ public class pilotosmotogp implements Serializable {
     private String nombre;
     private short numeroPiloto;
     private byte edad;
-    private String ciudadDeNacimiento;
+    private String paisDeNacimiento;
     private String equipo;
 
     public pilotosmotogp() {
@@ -55,11 +55,11 @@ public class pilotosmotogp implements Serializable {
     }
 
     public String getCiudadDeNacimiento() {
-        return ciudadDeNacimiento;
+        return paisDeNacimiento;
     }
 
     public void setCiudadDeNacimiento(String ciudadDeNacimiento) {
-        this.ciudadDeNacimiento = ciudadDeNacimiento;
+        this.paisDeNacimiento = ciudadDeNacimiento;
     }
 
     public String getEquipo() {

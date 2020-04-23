@@ -13,10 +13,11 @@ import com.listase.modelo.Nodo;
 import com.listase.modelo.NodoDE;
 import com.listase.utilidades.JsfUtil;
 import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
+
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import org.primefaces.model.diagram.Connection;
 import org.primefaces.model.diagram.DefaultDiagramModel;
