@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <style type="text/css">
+            .ui-diagram-element {   
+                width:8em; 
+                height:3em;     
+                line-height:3em;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+                border-radius: 4px;
+                border: 1px solid transparent;
+                background-color: #98AFC7;
+                color: #ffffff;
+            }
+
+            .ui-diagram-success {
+                background-color: #9CB071;
+                color: #ffffff;
+                border-color: #7ab02c;
+            }
+
+            .ui-diagram-fail {
+                background-color: #C34A2C;
+                color: #ffffff;
+            }
+
+            .flow-label {
+                font-size: 24px;
+                font-weight: bold;
+                color: #816A51;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <p:growl id="grwErrores"/>
+        <h:form id="frmPiloto">
+            <p:commandButton value="volver" action="inicio"/>
+            <p:panel header="carrera moto GP"/>
+            <p:panelGrid columns="2">
+                <p:panel header="Información del Piloto">
+
+                    <p:panelGrid columns="2">
+                        <p:outputLabel for="txtNombrePiloto" value="nombre"/>
+                        <p:inputText id="txtNombrePiloto" required="true" 
+                                     disabled="#{sesionMotoGP.deshabilitarFormulario}" value="#{sesionMotoGP.piloto.nombre}"/>
+
+                        <p:outputLabel for="spEdad" value="edad"/>
+                        <p:spinner id="spEdad" required="true" min="19" max="43" disabled="#{sesionMotoGP.deshabilitarFormulario}"
+                                   value="#{sesionMotoGP.piloto.edad}"/>
+
+                        <p:outputLabel for="txtPaisNacimiento" value="pais"/>
+                        <p:inputText id="txtPaisNacimiento" required="true"
+                                     disabled="#{sesionMotoGP.deshabilitarFormulario}" value="#{sesionMotoGP.piloto.paisDeNacimiento}"/>
+
+                        <p:outputLabel for="txtEquipo" value="Equipo"/>
+                        <p:inputText id="txtEquipo" required="true"
+                                     disabled="#{sesionMotoGP.deshabilitarFormulario}" value="#{sesionMotoGP.piloto.equipo}"/>
+
+                        <p:outputLabel for="spNumeroPiloto" value="numero del Piloto"/>
+                        <p:spinner id="spNumeroPiloto" required="true" min="0" max="1000" disabled="#{sesionMotoGP.deshabilitarFormulario}"
+                                   value="#{sesionMotoGP.piloto.numeroPiloto}"/>
+                        
+                        
+                        <p:outputLabel value="de primero"/>
+                        <p:selectOneMenu value="#{sesionMotoGP.alInicio}" disabled="#{sesionMotoGP.deshabilitarFormulario}">
+                            <f:selectItem itemLabel="si" itemValue="1"/>
+                            <f:selectItem itemLabel="no" itemValue="0"/>
+                        </p:selectOneMenu>                                                             
+                    </p:panelGrid>
+                    
+                    <p:commandButton value="guardadPiloto" update="frmPiloto,:grwErrores"
+                                     action="#{sesionMotoGP.guargarPiloto()}" disabled="#{sesionMotoGP.deshabilitarFormulario}"/>
+                    
+                    <p:commandButton value="nuevo" update="frmPiloto" action="#{sesionMotoGP.habilitarFormulario()}"
+                                     disabled="#{!sesionMotoGP.deshabilitarFormulario}"/>
+                    
+                    
+                    <p:panelGrid columns="2">
+                        <p:commandButton value="primer posicion" action="#{sesionMotoGP.ponerPilotoPrimero()}" update="frmPiloto"/>
+                        <p:commandButton value="ultima posicion" action="#{sesionMotoGP.ponerPilotoUltimo()}" update="frmPiloto"/>
+                        
+                    </p:panelGrid>   
+                    <p:panelGrid columns="2">
+                        <p:commandButton value="siguiente posicion" action="#{sesionMotoGP.irPosicionSiguiente()}" update="frmPiloto"/>
+                        <p:commandButton value="anterior posiscion" action="#{sesionMotoGP.irposicionAnterior()}" update="frmPiloto"/>                                         
+                    </p:panelGrid>
+                    
+                         
+                </p:panel>
+
+
+            </p:panelGrid>
+        </h:form>
+
+
+    </h:body>
+
+</html>
+
