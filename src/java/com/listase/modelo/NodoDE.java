@@ -7,7 +7,7 @@ package com.listase.modelo;
 
 /**
  *
- * @author carloaiza
+ * @author sebas
  */
 public class NodoDE {
     private Infante dato;

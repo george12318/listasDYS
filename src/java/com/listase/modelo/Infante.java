@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author carloaiza
+ * @author sebas
  */
 public class Infante implements  Serializable{
     private String nombre; //null

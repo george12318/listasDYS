@@ -7,7 +7,7 @@ package com.listase.excepciones;
 
 /**
  *
- * @author carloaiza
+ * @author sebas
  */
 public class InfanteExcepcion extends Exception
 {

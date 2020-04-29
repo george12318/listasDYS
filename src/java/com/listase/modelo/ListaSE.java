@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author carloaiza
+ * @author sebas
  */
 public class ListaSE implements Serializable{
     private Nodo cabeza;
