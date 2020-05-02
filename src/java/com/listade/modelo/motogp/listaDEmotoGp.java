@@ -133,60 +133,48 @@ public class listaDEmotoGp implements Serializable {
 //            return cont;
 //        }
 //    }
-    public void eliminarPiloto(short codigo) throws pilotoException 
-    {
-     
-        if(cabeza !=null)
-        {
-            if(cabeza.getDato().getNumeroPiloto()==codigo)
-            {
-                cabeza= cabeza.getSiguiente();
+    public void eliminarPiloto(short codigo) throws pilotoException {
+
+        if (cabeza != null) {
+            if (cabeza.getDato().getNumeroPiloto() == codigo) {
+                cabeza = cabeza.getSiguiente();
                 cabeza.setAnterior(null);
                 return;
-            }
-            else
-            {
-                nodoMtogoGp temp= cabeza;
-                while(temp.getSiguiente()!=null)
-                {
-                    if(temp.getSiguiente().getDato().getNumeroPiloto()==codigo)
-                    {
+            } else {
+                nodoMtogoGp temp = cabeza;
+                while (temp.getSiguiente() != null) {
+                    if (temp.getSiguiente().getDato().getNumeroPiloto() == codigo) {
                         temp.setSiguiente(temp.getSiguiente().getSiguiente());
-                        if(temp.getSiguiente()!=null)
-                        {
+                        if (temp.getSiguiente() != null) {
                             temp.getSiguiente().setAnterior(temp);
                             return;
                         }
-                        temp=temp.getSiguiente();
                     }
-                    throw new pilotoException("el codigo"+codigo+"no existe en la lista");
+                    temp = temp.getSiguiente();
                 }
+                throw new pilotoException("el codigo" + codigo + "no existe en la lista");
+
             }
         }
-        throw new pilotoException("la lista de pilotos esta vacia");
+
+        throw new pilotoException(
+                "la lista de pilotos esta vacia");
     }
-    
-          public pilotosmotogp obtenerPiloto(short codigo ) throws InfanteExcepcion, pilotoException
-    {
-        if(cabeza !=null)
-        {
-            if(cabeza.getDato().getNumeroPiloto()==codigo)
-            {                
+
+    public pilotosmotogp obtenerPiloto(short codigo) throws InfanteExcepcion, pilotoException {
+        if (cabeza != null) {
+            if (cabeza.getDato().getNumeroPiloto() == codigo) {
                 return cabeza.getDato();
-            }
-            else
-            {
-                nodoMtogoGp temp=cabeza;
-                while(temp!=null)
-                {
-                    if(temp.getDato().getNumeroPiloto()== codigo)
-                    {                                                
+            } else {
+                nodoMtogoGp temp = cabeza;
+                while (temp != null) {
+                    if (temp.getDato().getNumeroPiloto() == codigo) {
                         return temp.getDato();
                     }
                     temp = temp.getSiguiente();
                 }
-                
-                throw new pilotoException("el codigo"+codigo+"no existe en la lista");
+
+                throw new pilotoException("el codigo" + codigo + "no existe en la lista");
             }
         }
         throw new pilotoException("");
